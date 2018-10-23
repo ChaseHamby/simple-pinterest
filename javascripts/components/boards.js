@@ -1,11 +1,12 @@
 import {loadBoards} from '../data/boardsData.js'
+import {initializePinView} from './pins.js'
 
 const bindEvents = () => {
     $('#user-boards').on('click', '.board-card', (e) => {
         const clickedBoardId = $(e.target).closest('.board-card').attr('id'); // attr targets the id within that specific div id
         $('#boards-page').hide(); // hiding the boards page when you click it
-        $('pins-page').show(); // show the pins page when you click it
-        console.log(clickedBoardId);
+        $('#pins-page').show(); // show the pins page when you click it
+        initializePinView(clickedBoardId);
     })
 }
 
