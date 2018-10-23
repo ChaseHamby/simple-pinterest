@@ -15,7 +15,7 @@ const loadPinsOnBoards = (boards) => {
     return new Promise((resolve, reject) => {
         $.get('../db/pins.json')
             .done((data) => {
-                const boardsWithPins = boards.map(board => { // map function goes through the array
+                const boardsWithPins = boards.map(board => { // map function goes through the array - doesn't manipulate the array but returns out different options
                     const matchingPins = data.pins.filter(pin => pin.board_id === board.id);
                     board.pins = matchingPins;
                     return board;
@@ -28,4 +28,4 @@ const loadPinsOnBoards = (boards) => {
     })
 }
 
-export {loadPinsForBoard};
+export {loadPinsForBoard, loadPinsOnBoards};
