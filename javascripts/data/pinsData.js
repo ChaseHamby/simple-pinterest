@@ -17,7 +17,7 @@ const loadPinsOnBoards = (boards) => {
             .done((data) => {
                 const boardsWithPins = boards.map(board => { // map function goes through the array - doesn't manipulate the array but returns out different options
                     const matchingPins = data.pins.filter(pin => pin.board_id === board.id);
-                    board.pins = matchingPins;
+                    board.pins = matchingPins; // board.pins is now a new variable created here that is used later on boards.js
                     return board;
                 }) 
                 resolve(boardsWithPins);
